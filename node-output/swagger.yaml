@@ -131,20 +131,7 @@
           "500" : {
             "description" : "Internal Server Error",
             "schema" : {
-              "type" : "object",
-              "properties" : {
-                "code" : {
-                  "type" : "integer",
-                  "format" : "int64"
-                },
-                "type" : {
-                  "type" : "string"
-                },
-                "message" : {
-                  "type" : "string",
-                  "example" : "Internal Server Error"
-                }
-              }
+              "$ref" : "#/definitions/MyError"
             }
           }
         }
