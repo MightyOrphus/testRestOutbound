@@ -377,7 +377,7 @@
     "MyError2" : {
       "type" : "object",
       "properties" : {
-        "abc" : {
+        "errors" : {
           "type" : "string"
         }
       },
