@@ -164,14 +164,57 @@
           "required" : false,
           "type" : "file"
         } ],
-        "security" : [ {
-          "petstore_auth" : [ "write:pets", "read:pets" ]
-        } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
               "$ref" : "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/pet/500/uploadImage" : {
+      "post" : {
+        "tags" : [ "pet" ],
+        "summary" : "uploads an image",
+        "operationId" : "uploadFileFailReturnArray",
+        "consumes" : [ "multipart/form-data" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "additionalMetadata",
+          "in" : "formData",
+          "description" : "Additional data to pass to server",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "file",
+          "in" : "formData",
+          "description" : "file to upload",
+          "required" : false,
+          "type" : "file"
+        } ],
+        "security" : [ {
+          "petstore_auth" : [ "write:pets", "read:pets" ]
+        } ],
+        "responses" : {
+          "500" : {
+            "description" : "fail upload image",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "message" : {
+                  "type" : "string",
+                  "example" : "Fail to upload the listed files"
+                },
+                "images" : {
+                  "type" : "array",
+                  "example" : [ "pet01-001.jpeg", "pet01-oo2.jpeg" ],
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              }
             }
           }
         }
@@ -299,7 +342,8 @@
       "properties" : {
         "id" : {
           "type" : "integer",
-          "format" : "int64"
+          "format" : "int64",
+          "example" : 1
         },
         "category" : {
           "$ref" : "#/definitions/Category"
