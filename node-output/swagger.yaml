@@ -411,7 +411,17 @@
           "type" : "string"
         },
         "MyError2" : {
-          "$ref" : "#/definitions/MyError2"
+          "type" : "array",
+          "example" : [ {
+            "error" : "err-1"
+          }, {
+            "error" : "err-2"
+          }, {
+            "error" : "err-3"
+          } ],
+          "items" : {
+            "$ref" : "#/definitions/MyError2"
+          }
         }
       },
       "xml" : {
@@ -421,7 +431,7 @@
     "MyError2" : {
       "type" : "object",
       "properties" : {
-        "errors" : {
+        "error" : {
           "type" : "string"
         }
       },
