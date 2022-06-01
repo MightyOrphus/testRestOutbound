@@ -209,7 +209,7 @@
                 },
                 "images" : {
                   "type" : "array",
-                  "example" : [ "pet01-001.jpeg", "pet01-oo2.jpeg" ],
+                  "example" : [ "pet01-001.jpeg", "pet01-002.jpeg", "pet01-003.jpeg" ],
                   "items" : {
                     "type" : "string"
                   }
